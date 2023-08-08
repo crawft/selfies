@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Selfies</title>
+    <style>
+      #container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-content: stretch;
+        padding: 0;
+        max-width: 100%;
+      }
+
+      #container img {
+        display: block;
+        flex: 0 0 auto;
+        width: calc(100%/6);
+        height: auto;
+      }
+    </style>
+
+    <script src="selfies.js"></script>
+    <script>
+      const prefix = 'https://spelfieprod.blob.core.windows.net/selfie-raw/';
+
+      document.addEventListener('DOMContentLoaded', function () {
+
+        const container = document.getElementById('container');
+
+        selfies.forEach(selfie => {
+          const img = document.createElement("img");
+          img.src = prefix + selfie.OriginalUri;
+          container.appendChild(img);
+        })
+
+      }, false)
+
+    </script>
+  </head>
+  <body>
+    <div id="container">
+
+    </div>
+  </body>>
+
+</html>
